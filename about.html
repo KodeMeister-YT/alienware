@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="apple-mobile-web-app-title" content="CodePen" />
+  <link rel="icon" href="icon.png">
+  <title>About Alienware</title>
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 30px;
+    }
+
+    ::-webkit-scrollbar-track {
+      border: 7px solid #0a0a0a;
+      box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(#3494e6, #ec6ead);
+      border-radius: 6px;
+
+    }
+
+    /* Prevent text selection of an <body> element in all major browsers */
+    body {
+      -youbkit-touch-callout: none;
+      /* iOS Safari */
+      -youbkit-user-select: none;
+      /* Chrome 6.0+, Safari 3.1+, Edge & Opera 15+ */
+      -moz-user-select: none;
+      /* Firefox */
+      -ms-user-select: none;
+      /* IE 10+ and Edge */
+      user-select: none;
+      /* Non-prefixed version,
+                                currently supported by Chrome and Opera */
+    }
+
+    .html {
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+    }
+
+    .body {
+      font-family: Sans-serif, Arial;
+      padding: 0;
+      margin: 0;
+      font-size: 16px;
+      background: #0a0a0a;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ===========================
+          Navigation
+      ============================ */
+
+    .main-container {
+      background-size: cover;
+      padding-top: 22px;
+      z-index: 3;
+      background: url(https://i.dell.com/sites/csimages/Banner_Imagery/en/in-dhs-top-laptop-image-1010x416.png) no-repeat center,
+        linear-gradient(307deg,
+          transparent 0%,
+          transparent 10%,
+          rgba(190, 190, 190, 0.04) 10%,
+          rgba(190, 190, 190, 0.04) 64%,
+          transparent 64%,
+          transparent 100%),
+        linear-gradient(118deg,
+          transparent 0%,
+          transparent 11%,
+          rgba(190, 190, 190, 0.04) 11%,
+          rgba(190, 190, 190, 0.04) 31%,
+          transparent 31%,
+          transparent 100%),
+        linear-gradient(73deg,
+          transparent 0%,
+          transparent 22%,
+          rgba(190, 190, 190, 0.04) 22%,
+          rgba(190, 190, 190, 0.04) 90%,
+          transparent 90%,
+          transparent 100%),
+        linear-gradient(156deg,
+          transparent 0%,
+          transparent 51%,
+          rgba(190, 190, 190, 0.04) 51%,
+          rgba(190, 190, 190, 0.04) 97%,
+          transparent 97%,
+          transparent 100%),
+        linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0)) no-repeat center;
+    }
+
+    .container {
+      max-width: 1167px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      height: 57px;
+      width: 100%;
+      position: fixed;
+      z-index: 99;
+    }
+
+    #nav-bar {
+      display: block;
+      position: relative;
+      top: 18.99px;
+      left: 30px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+      z-index: 1;
+    }
+
+    .header__checkbox {
+      display: block;
+      width: 40px;
+      height: 32px;
+      line-height: 57px;
+      position: absolute;
+      top: -7px;
+      left: -5px;
+      cursor: pointer;
+      opacity: 0;
+      z-index: 2;
+      -webkit-touch-callout: none;
+    }
+
+    .nav-bar__spinner {
+      display: block;
+      width: 33px;
+      height: 4px;
+      margin-bottom: 5px;
+      position: relative;
+      border-radius: 1px;
+      -webkit-transform-origin: 4px 0px;
+      -moz-transform-origin: 4px 0px;
+      transform-origin: 4px 0px;
+      background: #f5f5f5;
+      -webkit-transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        opacity 0.55s ease;
+      transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+      z-index: 1;
+    }
+
+    .nav-bar__spinner:first-child {
+      -webkit-transform-origin: 0% 0%;
+      -moz-transform-origin: 0% 0%;
+      transform-origin: 0% 0%;
+    }
+
+    .nav-bar__spinner:nth-last-child(2) {
+      -webkit-transform-origin: 0% 100%;
+      -moz-transform-origin: 0% 100%;
+      transform-origin: 0% 100%;
+    }
+
+    .header__checkbox:checked~.nav-bar__spinner {
+      opacity: 1;
+      -webkit-transform: rotate(45deg) translate(-2px, -1px);
+      -moz-transform: rotate(45deg) translate(-2px, -1px);
+      transform: rotate(45deg) translate(-2px, -1px);
+      background: #f5f5f5;
+    }
+
+    .header__checkbox:checked~.nav-bar__spinner:nth-last-child(3) {
+      opacity: 0;
+      -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+      -moz-transform: rotate(0deg) scale(0.2, 0.2);
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    .header__checkbox:checked~.nav-bar__spinner:nth-last-child(2) {
+      -webkit-transform: rotate(-45deg) translate(0, -1px);
+      -moz-transform: rotate(-45deg) translate(0, -1px);
+      transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    .menu {
+      position: absolute;
+      width: 232px;
+      height: 100vh;
+      margin: -100px 0 0 -50px;
+      padding: 40px;
+      padding-left: 80px;
+      padding-top: 100px;
+      list-style-type: none;
+      -webkit-transform-origin: 0% 0%;
+      -moz-transform-origin: 0% 0%;
+      transform-origin: 0% 0%;
+      -webkit-transform: translate(-100%, 0);
+      -moz-transform: translate(-100%, 0);
+      transform: translate(-100%, 0);
+      -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+      -moz-transition: -moz-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+      background: url(https://i2.wp.com/discordemoji.com/assets/emoji/2352_orangejustice.gif) rgba(26, 26, 26, 0.781) no-repeat;
+      background-position: 25% 75%;
+      backdrop-filter: blur(10px);
+    }
+
+
+    /* .menu:hover {
+    content: url('https://media0.giphy.com/media/cMW2YLWxTaFfiASqsM/giphy.gif?cid=6c09b952b560eowxugvwwbth6sip6rfnl3ib1ko5kymzveeg&rid=giphy.gif&ct=s');
+    height: 100px;
+    width: 100px;
+} */
+
+
+    .header__checkbox:checked~.menu {
+      -webkit-transform: none;
+      -moz-transform: none;
+      transform: none;
+    }
+
+    .menu__item {
+      font-family: sans-serif;
+      text-align: right;
+      -webkit-box-align: center;
+      align-items: center;
+      padding: 1rem 0;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      transition: all 0.4s;
+    }
+
+    .menu__link {
+      text-decoration: none;
+      color: #cdcdcd;
+      font-weight: bold;
+      font-size: larger;
+    }
+
+    .menu__link:hover {
+      color: #9c9c9c;
+      cursor: pointer;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+      padding-top: 0;
+      margin-right: 20px;
+    }
+
+    .logo__main {
+      height: 80px;
+      width: 80px;
+
+    }
+
+    .logo__main {
+
+      display: block;
+      position: relative;
+      top: 18.99px;
+      left: -40px;
+    }
+
+
+    /* ===========================
+          Masthead
+      ============================ */
+
+    .main-title {
+      padding-bottom: 158px;
+      color: #fff;
+      max-width: 549px;
+      padding-left: 20px;
+      margin-top: 170px;
+      overflow: hidden;
+    }
+
+    .main-title__h1 {
+      font-family: "Audiowide", cursive;
+      font-size: 52px;
+      margin: 0;
+      font-weight: 500;
+      line-height: 1.33;
+      font-style: normal;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .main-title__paragraph {
+      font-size: 18px;
+      line-height: 1.33;
+      font-weight: 300;
+      font-style: normal;
+      margin-bottom: 40px;
+      max-width: 380px;
+    }
+
+
+
+
+
+
+
+    .col-main__img-1--logo {
+      height: auto;
+      width: 70%;
+    }
+
+
+
+
+
+
+    /* Social  */
+
+    .icons-social {
+      padding: 5px;
+    }
+
+    .list-social {
+      text-align: center;
+      padding: 0;
+    }
+
+    .icons-social__item {
+      display: inline-block;
+    }
+
+    .icons-social__link {
+      cursor: pointer;
+      display: flex;
+      text-decoration: none;
+      justify-content: center;
+      align-items: center;
+      color: rgb(71, 70, 70);
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin: 0px 5px;
+      font-size: 20px;
+      box-shadow: 0 5px 4px #05d5fc;
+      -webkit-transition: 0.2s linear;
+      transition: 0.2s linear;
+    }
+
+    .icons-social__link:hover {
+      box-shadow: 0 0 0 rgba(37, 40, 45, 0);
+    }
+
+    /* ===========================
+          Footer
+      ============================ */
+
+    .footer {
+      margin-bottom: 212px;
+      background: #000;
+      z-index: 3;
+
+    }
+
+    .section-footer {
+      color: #fff;
+      padding: 4rem 0;
+      width: 100%;
+      overflow: hidden;
+
+    }
+
+    .container-footer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1rem;
+      width: 98.3%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .col-main__img-1--logo-2 {
+      width: 100px;
+      height: 100px;
+    }
+
+    .footer__h3 {
+      margin-bottom: 0.7rem;
+    }
+
+    .ul-footer {
+      list-style: none;
+    }
+
+    .ul-footer__li {
+      color: #000;
+      margin-left: -39px;
+    }
+
+    .ul-footer__a {
+      line-height: 1.9;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-2 {
+      color: #444;
+      padding: 40px 0;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      background: #000;
+      z-index: -99;
+    }
+
+    .container-footer__link {
+      color: #444;
+      text-decoration: none;
+    }
+
+    .container-footer__link:hover {
+      color: #333;
+    }
+
+    /* ===========================
+          Responsive
+      ============================ */
+
+    @media (min-width: 1280px) {
+      .main-container {
+        background-size: 100vw;
+      }
+
+      .container {
+        max-width: 1440px;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .products {
+        height: 350px;
+      }
+
+      .col-main {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .container-title {
+        padding: 68px 0;
+      }
+
+      .products {
+        height: 310px;
+      }
+
+      .products-title {
+        width: 35%;
+      }
+
+      .go-corner {
+        margin-left: 13.16%;
+      }
+
+      .cards-container {
+        padding: 59px 0;
+      }
+
+      .card {
+        width: 644px;
+        height: 312px;
+        background-size: 23rem;
+      }
+
+      .button--card-1 {
+        margin: 0 16px 0 0;
+      }
+
+      .section-footer {
+        padding: 2rem 0;
+      }
+
+      .container-footer {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        height: 70vh;
+        background: url(https://i.dell.com/sites/csimages/Banner_Imagery/en/in-dhs-top-laptop-image-1010x416.png) #d3d3d3 no-repeat center;
+        background-size: contain;
+        width: 100vw;
+      }
+
+      @media screen and (max-width: 1990px) {
+        #nav-bar {
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -200px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+          z-index: 1;
+        }
+
+        .col-main__img-1 {
+          width: 70%;
+          padding-top: -10px;
+        }
+
+        .col-main__img-1--logo-2 {
+          width: 200px;
+          height: 200px;
+          padding-top: -10px;
+        }
+
+        .logo__main {
+          height: 57px;
+          width: 49px;
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -280px;
+        }
+
+      }
+
+      @media screen and (max-width: 1800px) {
+        #nav-bar {
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -150px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+          z-index: 1;
+        }
+
+        .logo__main {
+          height: 57px;
+          width: 49px;
+          /* display: block;
+      position: relative; */
+          top: 18.99px;
+          left: -50px;
+        }
+
+      }
+
+      @media screen and (max-width: 1750px) {
+        #nav-bar {
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -100px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+          z-index: 1;
+        }
+
+      }
+
+      @media screen and (max-width: 1650px) {
+        #nav-bar {
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -60px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+          z-index: 1;
+        }
+
+        .logo__main {
+          height: 57px;
+          width: 49px;
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -120px;
+        }
+      }
+
+      @media screen and (max-width: 1560px) {
+        #nav-bar {
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -20px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+          z-index: 1;
+        }
+
+        .logo__main {
+          height: 57px;
+          width: 49px;
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -80px;
+        }
+      }
+
+      @media screen and (max-width: 1500px) {
+        #nav-bar {
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: 0px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+          z-index: 1;
+        }
+      }
+
+      @media screen and (max-width: 1400px) {
+        #nav-bar {
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: 50px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+          z-index: 1;
+        }
+
+      }
+
+      @media screen and (min-width: 2200px) {
+        #nav-bar {
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -320px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+          z-index: 1;
+        }
+
+        .col-main__img-1 {
+          width: 60%;
+          padding-top: -10px;
+        }
+
+      }
+
+      @media screen and (min-width: 2500px) {
+        #nav-bar {
+          display: block;
+          position: relative;
+          top: 18.99px;
+          left: -480px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+          z-index: 1;
+        }
+
+        .col-main__img-1 {
+          width: 40%;
+          padding-top: -10px;
+        }
+      }
+
+      .main-title {
+        opacity: 0;
+      }
+
+      .button {
+        margin: 10px auto;
+      }
+
+      .main-title--2 {
+        opacity: 1;
+        display: block;
+        max-width: 768px;
+        margin: 0 auto;
+        text-align: center;
+        padding-left: 0;
+        padding: 25px;
+        background: linear-gradient(12deg,
+            rgba(193, 193, 193, 0.05) 0%,
+            rgba(193, 193, 193, 0.05) 2%,
+            rgba(129, 129, 129, 0.05) 2%,
+            rgba(129, 129, 129, 0.05) 27%,
+            rgba(185, 185, 185, 0.05) 27%,
+            rgba(185, 185, 185, 0.05) 66%,
+            rgba(83, 83, 83, 0.05) 66%,
+            rgba(83, 83, 83, 0.05) 100%),
+          linear-gradient(321deg,
+            rgba(240, 240, 240, 0.05) 0%,
+            rgba(240, 240, 240, 0.05) 13%,
+            rgba(231, 231, 231, 0.05) 13%,
+            rgba(231, 231, 231, 0.05) 34%,
+            rgba(139, 139, 139, 0.05) 34%,
+            rgba(139, 139, 139, 0.05) 71%,
+            rgba(112, 112, 112, 0.05) 71%,
+            rgba(112, 112, 112, 0.05) 100%),
+          linear-gradient(236deg,
+            rgba(189, 189, 189, 0.05) 0%,
+            rgba(189, 189, 189, 0.05) 47%,
+            rgba(138, 138, 138, 0.05) 47%,
+            rgba(138, 138, 138, 0.05) 58%,
+            rgba(108, 108, 108, 0.05) 58%,
+            rgba(108, 108, 108, 0.05) 85%,
+            rgba(143, 143, 143, 0.05) 85%,
+            rgba(143, 143, 143, 0.05) 100%),
+          linear-gradient(96deg,
+            rgba(53, 53, 53, 0.05) 0%,
+            rgba(53, 53, 53, 0.05) 53%,
+            rgba(44, 44, 44, 0.05) 53%,
+            rgba(44, 44, 44, 0.05) 82%,
+            rgba(77, 77, 77, 0.05) 82%,
+            rgba(77, 77, 77, 0.05) 98%,
+            rgba(8, 8, 8, 0.05) 98%,
+            rgba(8, 8, 8, 0.05) 100%),
+          linear-gradient(334deg, hsl(247, 0%, 2%), hsl(247, 0%, 2%));
+      }
+
+      .main-title__h1--2 {
+        margin: 0 auto;
+        width: 80%;
+        line-height: 1;
+      }
+
+      .main-title__paragraph--2 {
+        margin: 10px auto;
+        margin-bottom: 25px;
+        line-height: 1.5;
+        width: 90%;
+      }
+
+      .container-products {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .products {
+        height: 416px;
+        width: 100%;
+      }
+
+      .new {
+        width: 50%;
+      }
+
+      .go-corner {
+        margin-left: 39%;
+      }
+
+      .col-main {
+        height: 260px;
+      }
+
+      .col-main__img-1 {
+        width: 72%;
+      }
+
+      .col-main--logo {
+        height: auto;
+      }
+
+      .card {
+        width: 70%;
+        height: 630px;
+        display: block;
+      }
+
+      .card-text {
+        width: 100%;
+        transform: translate(0px, 280px);
+      }
+
+      .card-img {
+        transform: translateY(-160px);
+        width: 70%;
+        height: 42%;
+      }
+
+      .card-img__1 {
+        width: auto;
+      }
+
+      .container-buttons {
+        bottom: 35px;
+        justify-content: center;
+        display: block;
+        width: auto;
+        height: auto;
+      }
+
+      .button {
+        width: 251px;
+      }
+
+      .button--card-1 {
+        margin: 25px;
+      }
+
+      .button--card-2 {
+        margin: 25px;
+      }
+
+      .col-main--logo-2 {
+        height: auto;
+        margin-top: 15px;
+      }
+
+      .col-main__img-1--logo-2 {
+        width: 100px;
+        height: 100px;
+      }
+
+      .footer__h3 {
+        margin: 2rem;
+      }
+    }
+
+    #contact--us--mail {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* responsiveness  */
+    @media (max-width: 768px) and (max-height: 450px) {
+      .main-container {
+        height: 100vh;
+      }
+
+      .products {
+        height: 374px;
+      }
+
+      .go-corner {
+        margin-left: 39%;
+      }
+
+      .col-main {
+        height: 234px;
+      }
+
+      .col-main--logo {
+        height: auto;
+      }
+
+      .container-buttons {
+        bottom: 25px;
+      }
+
+      .button {
+        width: 233px;
+      }
+
+      .col-main--logo-2 {
+        height: auto;
+      }
+
+      .col-main__img-1--logo-2 {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 736px) and (height: 414px) {
+      .products {
+        height: 416px;
+      }
+
+      .go-corner {
+        margin-left: 39%;
+      }
+
+      .col-main {
+        height: 260px;
+      }
+
+      .col-main--logo {
+        height: auto;
+      }
+
+      .col-main--logo-2 {
+        height: auto;
+      }
+
+      .col-main__img-1--logo-2 {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .main-container {
+        height: 70vh;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .products {
+        height: 374px;
+      }
+
+      .go-corner {
+        margin-left: 39%;
+      }
+
+      .col-main {
+        height: 234px;
+      }
+
+      .col-main--logo {
+        height: auto;
+      }
+
+      .container-buttons {
+        bottom: 25px;
+      }
+
+      .button {
+        width: 233px;
+      }
+
+      .col-main--logo-2 {
+        height: auto;
+      }
+
+      .col-main__img-1--logo-2 {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media (max-width: 533px) and (height: 320px) {
+      .products {
+        height: 330px;
+      }
+
+      .go-corner {
+        margin-left: 37%;
+      }
+    }
+
+    @media (max-width: 480px) and (height: 854px) {
+      .products-title {
+        width: 45%;
+      }
+
+      .products {
+        height: 315px;
+      }
+
+      .go-corner {
+        margin-left: 36%;
+      }
+
+      .col-main {
+        height: 220px;
+      }
+
+      .col-main--logo {
+        height: auto;
+      }
+
+      .col-main--logo-2 {
+        height: auto;
+      }
+
+      .col-main__img-1--logo-2 {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media (max-width: 480px) and (height: 320px) {
+      .products {
+        height: 311px;
+      }
+
+      .go-corner {
+        margin-left: 36%;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .products-title {
+        width: 45%;
+      }
+
+      .products {
+        height: 300px;
+      }
+
+      .go-corner {
+        margin-left: 36%;
+      }
+
+      .col-main {
+        height: 210px;
+      }
+
+      .col-main--logo {
+        height: auto;
+      }
+
+      .col-main--logo-2 {
+        height: auto;
+      }
+
+      .col-main__img-1--logo-2 {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media screen and (max-width: 1990px) {
+      #nav-bar {
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: -200px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      .col-main__img-1 {
+        width: 70%;
+        padding-top: -10px;
+      }
+
+      .col-main__img-1--logo-2 {
+        width: 200px;
+        height: 200px;
+        padding-top: -10px;
+      }
+
+      .logo__main {
+        height: 100px;
+        width: 100px;
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: -400px;
+      }
+    }
+
+    @media screen and (max-width: 1800px) {
+      #nav-bar {
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: -150px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      .logo__main {
+        height: 100px;
+        width: 100px;
+        /* display: block;
+      position: relative; */
+        top: 18.99px;
+        left: -300px;
+      }
+
+    }
+
+    @media screen and (max-width: 1750px) {
+      #nav-bar {
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: -100px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      .logo__main {
+        height: 100px;
+        width: 100px;
+        /* display: block;
+      position: relative; */
+        top: 18.99px;
+        left: -300px;
+      }
+
+    }
+
+    @media screen and (max-width: 1650px) {
+      #nav-bar {
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: -60px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      .logo__main {
+        height: 100px;
+        width: 100px;
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: -200px;
+      }
+    }
+
+    @media screen and (max-width: 1560px) {
+      #nav-bar {
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: -20px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      .logo__main {
+        height: 100px;
+        width: 100px;
+        display: block;
+        position: relative;
+        top: 10.01px;
+        left: -70px;
+      }
+    }
+
+    @media screen and (max-width: 1500px) {
+      #nav-bar {
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: 0px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        z-index: 1;
+      }
+    }
+
+    @media screen and (max-width: 1400px) {
+      #nav-bar {
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: 50px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+    }
+
+    @media screen and (min-width: 2200px) {
+      #nav-bar {
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: -320px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      .col-main__img-1 {
+        width: 60%;
+        padding-top: -10px;
+      }
+
+    }
+
+    @media screen and (min-width: 2500px) {
+      #nav-bar {
+        display: block;
+        position: relative;
+        top: 18.99px;
+        left: -480px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      .col-main__img-1 {
+        width: 40%;
+        padding-top: -10px;
+      }
+    }
+
+    #arrow {
+      font-size: 70px;
+    }
+
+    #buttons-to-right {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      justify-content: space-evenly;
+      margin-right: 30px;
+      /* margin-bottom: 500px; */
+      margin-top: -485px;
+    }
+
+    @media (max-width: 414px) and (min-height: 736px) {
+      .container-title {
+        padding: 72px 0;
+      }
+
+      .products-title {
+        width: 50%;
+      }
+
+      .products {
+        height: 285px;
+      }
+
+      .go-corner {
+        margin-left: 36.5%;
+      }
+
+      .col-main {
+        height: 200px;
+      }
+
+      .col-main--logo {
+        height: auto;
+      }
+
+      .card-text {
+        transform: translate(0, 245px);
+      }
+
+      .card-img {
+        transform: translateY(-200px);
+      }
+
+      .col-main--logo-2 {
+        height: auto;
+      }
+    }
+
+    @media (max-width: 412px) {
+      .container-title {
+        padding: 72px 0;
+      }
+
+      .products-title {
+        width: 50%;
+      }
+
+      .card-text {
+        transform: translate(0, 245px);
+      }
+
+      .card-img {
+        transform: translateY(-200px);
+      }
+    }
+
+    @media (max-width: 384px) {
+      .container-title {
+        padding: 56px 0;
+      }
+
+      .products-title {
+        width: 50%;
+      }
+
+      .products {
+        height: 285px;
+      }
+
+      .go-corner {
+        margin-left: 35%;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .products {
+        height: 270px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .products-title {
+        width: 60%;
+      }
+
+      .products {
+        height: 283px;
+      }
+
+      .go-corner {
+        margin-left: 34%;
+      }
+
+      .col-main {
+        height: 210px;
+      }
+
+      .col-main__img-1 {
+        width: 86%;
+      }
+
+      .col-main--logo {
+        height: auto;
+      }
+
+      .card-text {
+        transform: translate(0, 225px);
+      }
+
+      .card-img {
+        transform: translateY(-220px);
+      }
+
+      .card-img__1 {
+        left: -14%;
+      }
+
+      .col-main--logo-2 {
+        height: auto;
+      }
+
+      .col-main__img-1--logo-2 {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+
+    .col-main__img-1--logo-2 {
+      height: 200px;
+      width: 200px !important;
+    }
+
+
+    ::-moz-selection {
+      background: rgb(78, 78, 78);
+    }
+
+    ;
+
+    ::selection {
+      background: rgb(78, 78, 78);
+    }
+
+    ;
+
+
+    /* data title  */
+    [data-title]:hover:after {
+      opacity: 1;
+      transition: all 0.1s ease 0.5s;
+      visibility: visible;
+    }
+
+    [data-title]:after {
+      content: attr(data-title);
+      position: absolute;
+      bottom: -1.6em;
+      left: 100%;
+      padding: 10px 10px 10px 10px;
+      color: rgb(0, 0, 0);
+      font-family: monospace;
+      font-size: 25px;
+      white-space: nowrap;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      -moz-box-shadow: 0px 0px 4px #666;
+      -webkit-box-shadow: 0px 0px 4px #666;
+      box-shadow: 0px 0px 4px #666;
+      background-image: -moz-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f0eded), color-stop(1, #bfbdbd));
+      background-image: -webkit-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -moz-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -ms-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -o-linear-gradient(top, #f0eded, #bfbdbd);
+      opacity: 0;
+      z-index: 9999999999;
+      visibility: hidden;
+    }
+
+    [data-title] {
+      position: relative;
+    }
+
+    /* menu2  */
+    /* menu  */
+    [data-title-menu2]:hover:after {
+      opacity: 1;
+      transition: all 0.1s ease 0.5s;
+      visibility: visible;
+    }
+
+    [data-title-menu2]:after {
+      content: attr(data-title-menu2);
+      position: absolute;
+      bottom: 500px;
+      left: 800px;
+      padding: 10px 10px 10px 10px;
+      color: rgb(0, 0, 0);
+      font-family: monospace;
+      font-size: 25px;
+      white-space: nowrap;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      -moz-box-shadow: 0px 0px 4px #666;
+      -webkit-box-shadow: 0px 0px 4px #666;
+      box-shadow: 0px 0px 4px #666;
+      background-image: -moz-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f0eded), color-stop(1, #bfbdbd));
+      background-image: -webkit-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -moz-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -ms-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -o-linear-gradient(top, #f0eded, #bfbdbd);
+      opacity: 0;
+      z-index: 9999999999;
+      visibility: hidden;
+    }
+
+    [data-title-menu2] {
+      position: relative;
+    }
+
+    /* menu  */
+    [data-title-menu]:hover:after {
+      opacity: 1;
+      transition: all 0.1s ease 0.5s;
+      visibility: visible;
+    }
+
+    [data-title-menu]:after {
+      content: attr(data-title-menu);
+      position: absolute;
+      bottom: 20px;
+      left: 70px;
+      padding: 10px 10px 10px 10px;
+      color: rgb(0, 0, 0);
+      font-family: monospace;
+      font-size: 25px;
+      white-space: nowrap;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      -moz-box-shadow: 0px 0px 4px #666;
+      -webkit-box-shadow: 0px 0px 4px #666;
+      box-shadow: 0px 0px 4px #666;
+      background-image: -moz-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f0eded), color-stop(1, #bfbdbd));
+      background-image: -webkit-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -moz-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -ms-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -o-linear-gradient(top, #f0eded, #bfbdbd);
+      opacity: 0;
+      z-index: 9999999999;
+      visibility: hidden;
+    }
+
+    [data-title-menu] {
+      position: relative;
+    }
+
+    /* tooltip for right  */
+
+    [data-title-right]:hover:after {
+      opacity: 1;
+      transition: all 0.1s ease 0.5s;
+      visibility: visible;
+    }
+
+    [data-title-right]:after {
+      content: attr(data-title-right);
+      position: absolute;
+      top: 1.6em;
+      right: 50%;
+      padding: 10px 10px 10px 10px;
+      color: rgb(0, 0, 0);
+      font-family: monospace;
+      font-size: 25px;
+      white-space: nowrap;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      -moz-box-shadow: 0px 0px 4px #666;
+      -webkit-box-shadow: 0px 0px 4px #666;
+      box-shadow: 0px 0px 4px #666;
+      background-image: -moz-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f0eded), color-stop(1, #bfbdbd));
+      background-image: -webkit-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -moz-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -ms-linear-gradient(top, #f0eded, #bfbdbd);
+      background-image: -o-linear-gradient(top, #f0eded, #bfbdbd);
+      opacity: 0;
+      z-index: 9999999999;
+      visibility: hidden;
+    }
+
+    [data-title-right] {
+      position: relative;
+    }
+  </style>
+</head>
+
+<body translate="no">
+  <!DOCTYPE html>
+  <html lang="en" class="html">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+    <meta name="description" content="Made For Gamers" />
+    <meta name="keywords" content="app, seo, web positioning" />
+    <meta name="author" content="" />
+    <title>Responsive Website #5</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="body" id="body-soomth">
+
+
+    <!-- Navigation -->
+
+    <section class="main-container" id="home">
+      <div class="container">
+        <header class="header">
+          <div id="nav-bar" data-title-menu="Menu">
+            <input class="header__checkbox" type="checkbox" />
+            <span class="nav-bar__spinner"></span>
+            <span class="nav-bar__spinner"></span>
+            <span class="nav-bar__spinner"></span>
+            <ul class="menu">
+              <li class="menu__item">
+                <a class="menu__link" href="index_noPopup.html" target="blank">Home</a>
+              </li>
+
+              <li class="menu__item">
+                <a class="menu__link" href="#col-main col-main--logo-2">Contact</a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="logo">
+            <img class="logo__main"
+              src="https://media2.giphy.com/media/cMW2YLWxTaFfiASqsM/giphy_s.gif?cid=790b76115a2bd4b98994add66e8f6822727d9976abe890d1&rid=giphy_s.gif&ct=s" />
+          </div>
+
+          <style>
+            .logo__main:hover {
+              content: url('https://media0.giphy.com/media/cMW2YLWxTaFfiASqsM/giphy.gif?cid=6c09b952b560eowxugvwwbth6sip6rfnl3ib1ko5kymzveeg&rid=giphy.gif&ct=s');
+              height: 100px;
+              width: 100px;
+            }
+          </style>
+
+        </header>
+        <div class="col-main col-main--logo">
+          <center>
+            <img class="col-main__img-1 col-main__img-1--logo"
+              src="https://media2.giphy.com/media/KCvgc1j9AC41U2Hz1A/giphy.gif?cid=6c09b952x1nlegp74xh173ws1wcvx0eo75vpjvaz8kwwb3i5&rid=giphy.gif&ct=s" />
+          </center>
+        </div>
+
+        <!-- Masthead -->
+
+        <div class="main-title">
+          <h1 class="main-title__h1">Thin Out the competition</h1>
+          <br>
+          <p class="main-title__paragraph">
+            Introducing Alienware’s most thin and powerful 15 inch gaming laptop ever powered with up to 10th gen Intel®
+            Core™ i9k processors and with up to 12-phase HyperEfficient Voltage regulation.
+          </p>
+          <style>
+            #buttons-to-right {
+              display: flex;
+              flex-direction: column-reverse;
+              align-items: flex-end;
+              justify-content: space-evenly;
+              margin-right: 30px;
+              /* margin-bottom: 500px; */
+              margin-top: -485px;
+            }
+          </style>
+
+        </div>
+      </div>
+
+      <style>
+        .scroll-down {
+          height: 90px;
+          width: 50px;
+          border: 2px solid rgb(251, 251, 251);
+          position: absolute;
+          left: 1175px;
+          bottom: 400px;
+          border-radius: 50px;
+          cursor: pointer;
+
+        }
+
+        .scroll-down::before,
+        .scroll-down::after {
+          content: "";
+          position: absolute;
+          top: 20%;
+          left: 50%;
+          height: 10px;
+          width: 10px;
+          transform: translate(-50%, -100%) rotate(45deg);
+          border: 2px solid rgb(255, 255, 255);
+          border-top: transparent;
+          border-left: transparent;
+          animation: scroll-down 1s ease-in-out infinite;
+        }
+
+        .scroll-down::before {
+          top: 30%;
+          animation-delay: 0.3s;
+          /* animation: scroll-down 1s ease-in-out infinite; */
+        }
+
+        @keyframes scroll-down {
+          0% {
+            /* top:20%; */
+            opacity: 0;
+          }
+
+          30% {
+            opacity: 1;
+          }
+
+          60% {
+            opacity: 1;
+          }
+
+          100% {
+            top: 90%;
+            opacity: 0;
+          }
+        }
+      </style>
+      <a href="#hero--vid" data-title-menu2="Scroll down or Click to Explore More">
+        <div class="scroll-down"></div>
+      </a>
+    </section>
+    <!-- <div class="arrow--animation">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+    
+            
+            
+            <span class="lorem"></span>
+            <span class="lorem"></span>
+            <span class="lorem"></span>
+          </div>
+          <style>
+            .arrow--animation {
+              position: absolute;
+              top: 50%;
+              left: 90%;
+              transform: translate(-50%, -50%);
+            }
+            .arrow--animation .lorem {
+              display: block;
+              width: 50px;
+              height: 50px;
+              border-bottom: 10px solid #06a8ff;
+              border-right: 10px solid #06a8ff;
+              border-top: 0px ;
+              border-left: 0px ;
+              transform: rotate(45deg);
+              margin: -10px;
+              animation: scroll 2s infinite;
+              
+            }
+            .arrow--animation .lorem:nth-child(2) {
+              animation-delay: -0.2s;
+            }
+            .arrow--animation .lorem:nth-child(3) {
+              animation-delay: -0.2s;
+            }
+            @keyframes scroll {
+              0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-70px, -70px);
+              }
+      
+              50% {
+                opacity: 1;
+              }
+      
+              100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(30px, 30px);
+              }
+            }
+          </style> -->
+
+
+
+
+    <!-- video  -->
+    <center>
+      <video width="854" height="480" controls id="hero--vid">
+        <source src="promo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </center>
+
+    <!-- Banner 1 -- everything counts -->
+    <div class="banner1-container" style="position: relative;
+    text-align: center;
+    color: white;">
+      <img
+        src="https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/page/campaign/alienware-com/alienware-hompage-slices/aw_q3_fy20_homepage_mod1.jpg?fmt=jpg"
+        alt="Alienware Legendary Battle Station Image" style="width:100%;">
+      <div class="centered" style=" position: absolute; 
+      top: 50%;
+      left: 80%;
+      transform: translate(-50%, -50%);">
+        <h1>EVERYTHING COUNTS </h1>
+        <h4 style="color:rgb(141, 141, 141) ;">Make every move count with the new Alienware battle station. It’s evolved
+          by your feedback for speed and accuracy in every match.</h6>
+      </div>
+    </div>
+
+    <!-- Banner 2 -- every frame -->
+    <div class="banner1-container" style="position: relative;
+    text-align: center;
+    color: rgb(8, 8, 8);">
+      <img
+        src="https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/page/campaign/alienware-com/alienware-hompage-slices/aw_q3_fy20_homepage_mod6.jpg?fmt=jpg"
+        alt="Alienware Monitor Image" style="width:100%;">
+      <div class="centered" style=" position: absolute; 
+      top: 50%;
+      left: 20%;
+      transform: translate(-50%, -50%);">
+        <h1>EVERY Frame </h1>
+        <h4 style="color:rgb(75, 75, 75) ;">Lightning-fast refresh and response times eliminate blurring –<br> perfect
+          for games played at breakneck speeds. </h4>
+      </div>
+    </div>
+    <!-- Banner 3 -- every advantage -->
+    <div class="banner1-container" style="position: relative;
+    text-align: center;
+    color: white;">
+      <img
+        src="https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/page/campaign/alienware-com/alienware-hompage-slices/aw_q3_fy20_homepage_mod3.jpg?fmt=jpg"
+        alt="Alienware Aurora R12" style="width:100%;">
+      <div class="centered" style=" position: absolute; 
+      top: 50%;
+      left: 80%;
+      transform: translate(-50%, -50%);">
+        <h1>EVERY ADVANTAGE </h1>
+        <h4 style="color:rgb(141, 141, 141) ;">The official gaming PC of Team Liquid features pro-level power and a
+          redesigned chassis for improved airflow.</h4>
+      </div>
+    </div>
+
+    <!-- Banner 4 -- INNOVATIVE ENGINEERING -->
+    <div class="banner1-container" style="position: relative;
+     text-align: center; background-color:#ffffff;
+     ">
+      <img
+        src="https://i.dell.com/is/image/DellContent//content/dam/global-asset-library/Products/Notebooks/Alienware/17_area-51m_r2_non-touch_non-tobii/awarea-51mnt_cnb_00180bf090_wh.psd?fmt=jpg&wid=4000&hei=4000"
+        alt="Alienware Area-51 R2 Gaming Laptop" width="480px">
+      <div class="centered" style=" position: absolute; 
+       top: 50%;
+       left: 20%;
+       transform: translate(-50%, -50%);">
+        <h1>INNOVATIVE <br>ENGINEERING </h1>
+        <h4 style="color:rgb(78, 78, 78) ;">The official gaming PC of Team <br> Liquid features pro-level power<br> and
+          a redesigned chassis for <br>improved airflow.</h4>
+      </div>
+    </div>
+
+    <!-- Banner 5 -- PREPARE YOUR GAMING PC FOR BATTLE. -->
+    <div class="banner1-container" style="position: relative;
+     text-align: center; background-color:#777777 ;color: #161616;
+     ">
+      <img src="https://i.dell.com/sites/csimages/Merchandizing_Imagery/all/awarea-51mnt_nontobii_lnb_00055rf110_gy.png"
+        alt="Alienware M15 R3" width="480px" style="top: 0%;
+       left: 85%;
+       transform: translate(30%, -0%);
+              ">
+      <div class="centered" style=" position: absolute; 
+       top: 50%;
+       left: 85%;
+       transform: translate(-50%, -50%);">
+        <h1>PREPARE YOUR GAMING PC FOR BATTLE </h1>
+        <h4 style="color:rgba(56, 56, 56, 0.726) ;">Battle the game, not your PC. With Premium Support Plus, your
+          hardware will perform at its best, your games will be more responsive, and you'll be unbeatable. It's Dell’s
+          ultimate support for gaming PCs.
+
+        </h4>
+      </div>
+    </div>
+
+    <!-- Banner 6 -- LEADING DESIGN & FUNCTION. -->
+    <div class="banner1-container" style="position: relative;
+     text-align: center; background-color:#222222 ;color: #dfdfdf;
+     ">
+      <img src="https://i.dell.com/sites/csimages/Merchandizing_Imagery/all/awm15nt_xnb_exploded_shot_01_wh.png"
+        alt="Alienware Laptop Interior Parts" width="480px" style="top: 0%;
+       
+       transform: translate(-70%, -20%);  ">
+      <div class="centered" style=" position: absolute; 
+       top: 30%;
+       left: 80%;
+       transform: translate(-99%, -50%);">
+        <h1>LEADING DESIGN & FUNCTION </h1>
+        <h4 style="color:rgb(161, 161, 161) ;">Every Alienware laptop is crafted with magnesium alloy for a <br>durable,
+          elite feel that’s effortlessly mobile. The four-zone, multi-<br>color RGB keyboard offers you total AlienFX
+          control and<br> programmable keys.</h4>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Footer -->
+
+    <footer class="footer " id="col-main col-main--logo-2">
+      <div class="section-footer">
+        <div class="container-footer">
+          <div class="logo-footer">
+
+            <div class="col-main col-main--logo-2">
+              <img class="col-main__img-1 col-main__img-1--logo-2" src="https://i.ibb.co/8r0p8FR/img-12.png" />
+            </div>
+          </div>
+
+          <div class="info-footer">
+            <h3 class="footer__h3">Products</h3>
+            <ul class="ul-footer">
+              <li class="ul-footer__li">
+                <a class="ul-footer__a" href="product-set.html" target="blank">Alienware Complete Gaming Set</a>
+              </li>
+              <li class="ul-footer__li">
+                <a class="ul-footer__a" href="product-case.html" target="blank">Alienware Area 51 Case</a>
+              </li>
+              <li class="ul-footer__li">
+                <a class="ul-footer__a" href="product-keyboard.html" target="blank">Alienware Gaming Keyboard</a>
+              </li>
+              <li class="ul-footer__li">
+                <a class="ul-footer__a" href="product-mouse.html" target="blank">Alienware Gaming Mouse</a>
+              </li>
+              <li class="ul-footer__li">
+                <a class="ul-footer__a" href="product-monitor.html" target="blank">Alienware Monitor</a>
+              </li>
+              <li class="ul-footer__li">
+                <a class="ul-footer__a" href="product-laptop.html" target="blank">Alienware Ultra Gaming Laptop</a>
+              </li>
+            </ul>
+            <br>
+            <br>
+
+            <h3 class="footer__h3">Gaming</h3>
+            <ul class="ul-footer">
+              <li class="ul-footer__li">
+                <a class="ul-footer__a" href="#tres">Alienware Beast-85 (Blue)</a>
+              </li>
+              <li class="ul-footer__li">
+                <a class="ul-footer__a" href="#gaming--red">Alienware Beast-85 (Red)</a>
+              </li>
+              <br>
+              <br>
+            </ul>
+
+            <h3 class="footer__h3">Contact Us</h3>
+            <ul class="ul-footer">
+              <li class="ul-footer__li">
+                <a class="ul-footer__a"
+                  href="mailto:kp197525006@gmail.com?subject=regarding your alienware website...">Click here to send a
+                  mail</a>
+              </li>
+
+            </ul>
+          </div>
+
+
+
+          <div class="info-footer">
+            <h3 class="footer__h3">Send a feedback...</h3>
+            <br>
+
+            <br>
+            <section class="section--contact">
+              <div class="container--contact">
+                <form action="">
+
+                  <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" cols="30" rows="5"></textarea>
+                  </div>
+
+                  <script>
+                    function doSomething() {
+                      alert("submitted successfully");
+                    }
+                  </script>
+                  <button type="submit" id="button-contact" onclick="doSomething()">Submit</button>
+                </form>
+              </div>
+
+            </section>
+            <br>
+            <style>
+              .section--contact {
+                z-index: 3;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+              }
+
+              .container--contact {
+                border-radius: 18px;
+                margin: 0 auto;
+                width: 400px;
+                /* max-width: 550px; */
+                height: 390px;
+                background: linear-gradient(0deg, #000, #262626);
+                padding: 20px;
+              }
+
+              /* .container---contact{
+              width: 90%;
+              max-width: 550px;
+              margin: 0 auto;
+              padding: 20px;
+             
+            } */
+              .container--contact:before,
+              .container--contact:after {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+                background-size: 400%;
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+                z-index: -1;
+                animation: animate 20s linear infinite;
+                border-radius: 18px;
+              }
+
+              .container--contact:after {
+                filter: blur(20px);
+                border-radius: 18px;
+              }
+
+              @keyframes animate {
+                0% {
+                  background-position: 0 0;
+                }
+
+                50% {
+                  background-position: 400% 0;
+                }
+
+                100% {
+                  background-position: 0 0;
+                }
+              }
+
+              .form-group {
+                width: 100%;
+                margin-top: 5px;
+                padding: 5px;
+              }
+
+              .form-group input,
+              .form-group textarea {
+                width: 100%;
+                padding: 2px;
+                border: 0;
+                margin-top: 2px;
+                font-size: 20px;
+                border-radius: 8px;
+              }
+
+              textarea {
+                resize: none;
+              }
+
+              #button-contact {
+                width: 100%;
+                border: none;
+                outline: none;
+                padding: 5px;
+                font-size: 20px;
+                border-radius: 8px;
+                color: rgb(27, 166, 247);
+                text-align: center;
+                cursor: pointer;
+                margin-top: 5px;
+                transition: 0.3s ease background-color;
+                transition: 0.3s ease color;
+              }
+
+              #button-contact:hover {
+                background-color: rgb(91, 94, 97);
+                color: white;
+              }
+            </style>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <footer class="footer-2">
+      <div class="icons-social">
+        <ul class="list-social">
+          <li class="icons-social__item">
+            <a class="icons-social__link" href="https://github.com/KodeMeister-YT" title="GitHub Account"
+              target="blank"><i class="icons-social__i fab fa-github"></i></a>
+          </li>
+
+          <li class="icons-social__item">
+            <a class="icons-social__link" href="https://twitter.com/codes_kp" title="Twitter Handle"><i
+                class="icons-social__i fab fa-twitter"></i></a>
+          </li>
+          <li class="icons-social__item">
+            <a class="icons-social__link" href="https://www.youtube.com/channel/UCgtxtD7_d1bzU9fbiQTKnfA"
+              title="Youtube Channel"><i class="icons-social__i fab fa-youtube"></i></a>
+          </li>
+          <li class="icons-social__item">
+            <a class="icons-social__link" href="https://www.youtube.com/channel/UC9iHWxwSjSuBpOx6JvPfeDw"
+              title="Youtube Channel"><i class="icons-social__i fab fa-youtube"></i></a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="container-footer-2">
+        <p id="copy">
+          &copy; Copyrights reserved with Krish Patel
+        </p>
+        <style>
+          #copy {
+            color: #cdcdcd;
+            font-size: 20px;
+          }
+        </style>
+      </div>
+    </footer>
+  </body>
+
+  </html>

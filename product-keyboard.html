@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alienware RGB Mechanical Keyboard Product </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  <link rel="stylesheet" href="productstyle.css" />
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="product-case--only-modal--css.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<div class="container">
+  <div class="wrapper">
+    <div class="product-box">
+      <div class="all-images">
+        <div class="small-images">
+          <img src="product-keyboard--1.png" onclick="clickimg(this)" />
+          <img src="product-keyboard--2.png" onclick="clickimg(this)" />
+
+
+
+        </div>
+
+        <div class="main-images">
+          <img src="product-keyboard--1.png" alt="" id="imagebox" />
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <div class="content">
+        <p class="brand"><span>Brand : Alienware</span></p>
+        <h2>New Alienware Low Profile RGB Mechanical Gaming Keyboard | AW510K </h2>
+        <br>
+        <h4>A beautifully designed, full-featured gaming keyboard offering programmable keys and dedicated volume
+          control. Made for ultimate performance.</h4>
+        <br>
+        <br>
+        <div class="review">
+          <span>(4.7 &#9733;)</span>
+          <span class="fa fa-star"></span>
+        </div>
+        <div class="price-box">
+          <p class="price">&#8377; 9,519</p>
+          <strike>&#8377; 11,826</strike>
+        </div>
+        <p>
+          Customize Preferences for delivery :&nbsp;&nbsp;
+          <select name="size">
+            <option value="select colour">Select Keyboard Variant</option>
+            <option value="black">black</option>
+            <option value="white">white</option>
+
+
+          </select>
+        </p>
+
+        <p>Quantity <input type="text" value="1" /></p>
+
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          Watch Product Videos
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Product Videos</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+
+                <iframe width="460" height="258
+                  .75" src="https://www.youtube.com/embed/S8aUX6lk0Ws" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+                <br>
+
+                <iframe width="460" height="258
+                  .75" src="https://www.youtube.com/embed/11xYCjmFyR4" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      <br>
+
+
+      <a href="card--keyboard.html" target="blank">
+        <button class="buy"></i>
+          <span></span>
+          &#x1F6D2; Buy now
+        </button>
+      </a>
+      <a href="index_noPopup.html">
+        <button class="buy"></i>
+          <span></span>
+          Back to Home
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+<script>
+  function clickimg(smallImg) {
+    var fullImg = document.getElementById("imagebox")
+    fullImg.src = smallImg.src
+  }
+</script>
+
+</body>
+
+</html>
